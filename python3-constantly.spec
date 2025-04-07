@@ -11,6 +11,7 @@ Source0:	https://files.pythonhosted.org/packages/source/c/constantly/constantly-
 URL:		https://pypi.org/project/constantly/
 BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
+BuildRequires:	python3-versioneer
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-modules >= 1:2.7
