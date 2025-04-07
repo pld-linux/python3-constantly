@@ -2,7 +2,7 @@ Summary:	Symbolic constants in Python
 Summary(pl.UTF-8):	Stałe symboliczne w Pythonie
 Name:		python3-constantly
 Version:	23.10.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/constantly/
