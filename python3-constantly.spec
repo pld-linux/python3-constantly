@@ -1,3 +1,8 @@
+# TODO: finish tests (actually run them)
+#
+# Conditional build:
+%bcond_with	tests	# unit tests
+
 Summary:	Symbolic constants in Python
 Summary(pl.UTF-8):	Stałe symboliczne w Pythonie
 Name:		python3-constantly
@@ -9,12 +14,15 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/c/constantly/constantly-%{version}.tar.gz
 # Source0-md5:	c090579309b2b34be04385b54b0a5a85
 URL:		https://pypi.org/project/constantly/
-BuildRequires:	python3-modules >= 1:3.3
-BuildRequires:	python3-setuptools
-BuildRequires:	python3-versioneer
+BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-setuptools >= 1:68.2
+BuildRequires:	python3-versioneer >= 0.29
+%if %{with tests}
+BuildRequires:	python3-twisted
+%endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python-modules >= 1:2.7
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,6 +42,10 @@ Twisted.
 
 %build
 %py3_build
+
+%if %{with tests}
+# trial-3? ... constantly/test
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
